@@ -35,21 +35,21 @@ Para documentação da API, acesse o link: https://nlw-unite-nodejs.onrender.com
 
 ## Anotações
 
-metodos HTTP: GET, POST PUT, DELETE PATCH, HEAD, OPTIONS.../corpo da requisição (request body)
-parametros de busca (search params / query params `http://localhost:3333/users?name=Carlos` )
-parametros de rota (route params) -> identificação de recursos DELETE `https://localhost:3333/users/5`
-cabeçalhos (Headers) -> Contexto
+- metodos HTTP: GET, POST PUT, DELETE PATCH, HEAD, OPTIONS.../corpo da requisição (request body)
+- parametros de busca (search params / query params `http://localhost:3333/users?name=Carlos` )
+- parametros de rota (route params) -> identificação de recursos DELETE `https://localhost:3333/users/5`
+- cabeçalhos (Headers) -> Contexto
 
-semantica = Significado
+- semantica = Significado
 
-driver nativo / Query Builders / ORMs
-ORMs: Object Relational Mapping ( Hibernate / Doctrine / )
+- driver nativo / Query Builders / ORMs
+- ORMs: Object Relational Mapping ( Hibernate / Doctrine / )
 
-Status Code HTTP
-20x => Sucesso
-30x => Redirecionamento
-40x => Erro do cliente (Erro em alguma informação enviada por que estar fazendo a chamanda p/ API)
-50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado para o servidor)
+##### Status Code HTTP
+- 20x => Sucesso
+- 30x => Redirecionamento
+- 40x => Erro do cliente (Erro em alguma informação enviada por que estar fazendo a chamanda p/ API)
+- 50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado para o servidor)
 
 ## Bibliotecas Usadas
 
