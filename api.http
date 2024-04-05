@@ -2,7 +2,26 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-    "title": "Unite unitt",
-    "details": "Um evento para quem é apaixonado por Programação",
-    "maximumAttendees": 100
+    "title": "Novo Evento 2",
+    "details": null,
+    "maximumAttendees": 1
 }
+
+###
+
+POST http://localhost:3333/events/5c6d3871-99bd-4fc9-a10e-2eac9743e7ba/attendees
+Content-Type: application/json
+
+{
+    "name": "Carlos Eduardo",
+    "email": "eduardo2@gmail.com"
+}
+
+###
+
+GET http://localhost:3333/events/5c6d3871-99bd-4fc9-a10e-2eac9743e7ba
+
+
+###
+
+GET http://localhost:3333/attendees/1/badge

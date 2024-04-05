@@ -51,6 +51,14 @@ Para documentação da API, acesse o link: https://nlw-unite-nodejs.onrender.com
 - 40x => Erro do cliente (Erro em alguma informação enviada por que estar fazendo a chamanda p/ API)
 - 50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado para o servidor)
 
+
+
+
+
+
+
+
+
 ## Bibliotecas Usadas
 
 ```dash
