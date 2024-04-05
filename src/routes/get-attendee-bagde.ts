@@ -13,7 +13,16 @@ export async function getAttendeeBadge(app: FastifyInstance) {
           //coerce: ele pode nao vim como number, mais eu quero que voce converta em number
           attendeeId: z.coerce.number().int(),
         }),
-        response: {},
+        response: {
+          200: z.object({
+            bagde: z.object({
+              name: z.string(),
+              email: z.string().email(),
+              eventTitle: z.string(),
+              checkInURL: z.string().url(), //para seguir o formato de o url()
+            }),
+          }),
+        },
       },
     },
     async (request, reply) => {
@@ -37,7 +46,22 @@ export async function getAttendeeBadge(app: FastifyInstance) {
       if (attendee == null) {
         throw new Error('Participante não encontrado.');
       }
-      return reply.status(200).send({ attendee });
+
+      console.log(request.hostname);
+
+      //criando a urlBase
+      const baseUrl = `${request.protocol}://${request.hostname}`;
+
+      const checkInURL = new URL(`/attendees/${attendeeId}/check-in`, baseUrl);
+
+      return reply.status(200).send({
+        bagde: {
+          name: attendee.name,
+          email: attendee.email,
+          eventTitle: attendee.event.title,
+          checkInURL: checkInURL.toString(), //convertendo a URL em string
+        },
+      });
     },
   );
 }

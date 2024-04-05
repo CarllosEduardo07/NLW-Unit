@@ -25,3 +25,12 @@ GET http://localhost:3333/events/5c6d3871-99bd-4fc9-a10e-2eac9743e7ba
 ###
 
 GET http://localhost:3333/attendees/1/badge
+
+###
+
+GET http://localhost:3333/attendees/3/check-in
+
+
+###
+
+GET http://localhost:3333/events/e341009b-895e-44e1-ba96-35424042a45f/attendees?query=carlos
