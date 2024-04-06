@@ -8,6 +8,8 @@ export async function getAttendeeBadge(app: FastifyInstance) {
     '/attendees/:attendeeId/badge',
     {
       schema: {
+        summary: 'Get an attendee badge',
+        tags: ['attendees'],
         params: z.object({
           //ele vem como string mas vamos converter pra number
           //coerce: ele pode nao vim como number, mais eu quero que voce converta em number
