@@ -1,19 +1,24 @@
 import fastify from 'fastify';
 
 //fazendo documentação da API
+import { fastifyCors } from '@fastify/cors';
 import { fastifySwagger } from '@fastify/swagger';
+import { fastifySwaggerUi } from '@fastify/swagger-ui';
 
-import fastifySwaggerUi from '@fastify/swagger-ui';
-import { jsonSchemaTransform, serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
+import { ZodTypeProvider, jsonSchemaTransform, serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
+import { errorHandler } from './error-handle';
 import { checkIn } from './routes/check-in';
 import { createEvent } from './routes/create-event';
 import { getAttendeeBadge } from './routes/get-attendee-bagde';
 import { getEvent } from './routes/get-event';
 import { geteventAttendees } from './routes/get-event-attendees';
 import { registerForEvent } from './routes/register-for-event';
-import { errorHandler } from './error-handle';
 
-const app = fastify();
+const app = fastify().withTypeProvider<ZodTypeProvider>();
+
+app.register(fastifyCors, {
+  origin: '*',
+});
 
 app.register(fastifySwagger, {
   swagger: {
@@ -31,7 +36,7 @@ app.register(fastifySwagger, {
 });
 
 app.register(fastifySwaggerUi, {
-  routePrefix: '/docs' // para acessar a documentação, basta coloca http://localhost:3333/docs
+  routePrefix: '/docs', // para acessar a documentação, basta coloca http://localhost:3333/docs
 });
 
 // Add schema validator and serializer
@@ -45,8 +50,8 @@ app.register(getAttendeeBadge);
 app.register(checkIn);
 app.register(geteventAttendees);
 
-app.setErrorHandler(errorHandler)
+app.setErrorHandler(errorHandler);
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
   console.log('HTTP server running!');
 });

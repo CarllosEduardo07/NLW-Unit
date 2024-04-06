@@ -94,3 +94,7 @@ npm i @fastify/swagger
 ```dash
 npm i @fastify/swagger-ui
 ```
+- permite o uso de CORS em um aplicativo Fastify.
+```dash
+npm i @fastify/cors
+```
