@@ -53,34 +53,44 @@ Para documentação da API, acesse o link: https://nlw-unite-nodejs.onrender.com
 
 
 
-
-
-
-
-
-
 ## Bibliotecas Usadas
 
+- Framework web rápido e de baixo custo, para Node.js
 ```dash
 npm i fastify
 ```
 
+- ORM de próxima geração para Node.js e TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB e CockroachDB
 ```dash
 npm i prisma
 ```
 
+- ( npm i typescript ) TypeScript é um superconjunto de JavaScript que é compilado para limpar a saída de JavaScript.
+- ( @type/node -D ) O repositório para definições de tipo TypeScript de alta qualidade.
 ```dash
 npm i typescript @type/node -D
 ```
-
+- TypeScript Execute: Node.js aprimorado para executar TypeScript e ESM
 ```dash
 npm i tsx
 ```
 
+- é uma biblioteca de validação de esquemas para JavaScript/TypeScript, com o Fastify.
 ```dash
 npm i zod
 ```
 
+- Integra o Zod, que é uma biblioteca de validação de esquemas para JavaScript/TypeScript, com o Fastify.
 ```dash
 npm i fastify-type-provider-zod
+```
+
+- Gerador de documentação Swagger para Fastify (so fica a especificação da API)
+```dash
+npm i @fastify/swagger
+```
+
+- Servir Swagger-UI para Fastify (Interface Web, para navegar pela documentação)
+```dash
+npm i @fastify/swagger-ui
 ```
