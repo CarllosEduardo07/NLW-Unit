@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import z from 'zod';
 import { prisma } from '../lib/prisma';
+import { BadRequest } from './_errors/bad-request';
 
 export async function getEvent(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
@@ -49,7 +50,7 @@ export async function getEvent(app: FastifyInstance) {
       });
 
       if (event === null) {
-        throw new Error('Evento não identificado.');
+        throw new BadRequest('Evento não identificado.');
       }
 
       return reply.status(200).send({

@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
+import { BadRequest } from './_errors/bad-request';
 
 export async function registerForEvent(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
@@ -38,7 +39,7 @@ export async function registerForEvent(app: FastifyInstance) {
       });
 
       if (attendeeFromEmail !== null) {
-        throw new Error('Email, ja cadastrado no Evento.');
+        throw new BadRequest('Email, ja cadastrado no Evento.');
       }
 
       // 2 query executando ao mesmo tempo
@@ -56,7 +57,7 @@ export async function registerForEvent(app: FastifyInstance) {
       ]);
 
       if (event?.maximumAttendees && amonutOfAttendeesForEvent >= event?.maximumAttendees) {
-        throw new Error('Limite maximo de Participantes nesse evento');
+        throw new BadRequest('Limite maximo de Participantes nesse evento');
       }
 
       const attendee = await prisma.attendee.create({
